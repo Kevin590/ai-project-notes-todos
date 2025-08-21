@@ -74,3 +74,4 @@ AI Agent Instructions (concise)
 3. [ ] Set up CI to run `bin/rails test`
 
 ## Completed To-Do's
+1. [x] Create and add Product Notes/To-Do's to git repo
