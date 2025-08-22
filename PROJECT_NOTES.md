@@ -4,6 +4,22 @@ This file is meant for quick capture of thoughts and todos while working in the 
 
 ---
 
+<!-- Auto-jump to Notes on preview (fallback link provided). 
+     Note: Some Markdown previewers disable scripts; the link still works. -->
+<p id="top" style="margin: 0.5rem 0;">
+  <a href="#notes" style="color: #0969da; text-decoration: none; font-weight: 600;">Jump to Notes</a>
+  <span style="color:#57606a; font-size: 0.9em;">(auto-scroll on supported previews)</span>
+  <script>
+    (function() {
+      try {
+        if (!location.hash || location.hash === '#top') {
+          location.hash = '#notes';
+        }
+      } catch (e) {}
+    })();
+  </script>
+</p>
+
 ## How to use
 - Add this file to the AI Context in your IDE.
 - The AI will ask: "What type of note? (* 1- Note, * 2- TODO)".
@@ -122,8 +138,8 @@ Rules for converting user input into sub-bullets under the same numbered Note it
 5) Preserve existing sub-bullets; append new ones at the end of the note's sub-list.
 -->
 
+<h2 id="notes" style="color:#1f6feb;">Notes</h2>
 
-## Notes
 1. Sample onboarding note
    - Add `docs/PROJECT_NOTES.md` to AI context in your IDE
    - Use `* help` to see quick commands
@@ -132,11 +148,13 @@ Rules for converting user input into sub-bullets under the same numbered Note it
    - Accessible labels and focus states
    - Basic test coverage
 
-## To-Do
+<h2 id="to-do" style="color:#e36209;">To-Do</h2>
+
 1. [ ] Remove all sample Notes and To-Do's
 2. [ ] Create initial admin user and verify login flow
      - [ ] (2a) Sample To-Do (Subtask)
 3. [ ] Set up CI to run `bin/rails test`
 
-## Completed To-Do's
+<h2 id="completed" style="color:#2da44e;">Completed To-Do's</h2>
+
 1. [x] Create and add Product Notes/To-Do's to git repo
