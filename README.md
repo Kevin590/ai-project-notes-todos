@@ -35,9 +35,11 @@ Nothing outside the Notes/To-Do/Completed sections is modified by the assistant 
 3) Reply with one of:
    - Add Note: `* 1 This is a thought...` or `* note This is a thought...`
    - Add To-Do: `* 2 Implement X` or `* todo Implement X`
+   - Add To-Do subtask: `* todo 3; - [ ] New subtask` → auto-tagged as `(3a)`, `(3b)`, ...
 
 To mark a To-Do complete, either:
 - Explicit command: `* done 3` or `* complete 3`
+- Subtask by ID: `* done 3a` to toggle completion of subtask `(3a)` in place
 - Manual toggle: change `[ ]` to `[x]` or `[X]` and send any prompt; housekeeping will move it.
 
 Type `* help` anytime for a concise cheat sheet (no file changes).
@@ -47,13 +49,15 @@ Type `* help` anytime for a concise cheat sheet (no file changes).
 ## Common commands
 - Add sub-items
   - Note sub-bullet: `* note 2; - more detail`
-  - To-Do subtask: `* todo 1; - [ ] subtask`
+  - To-Do subtask: `* todo 1; - [ ] subtask` → auto-tagged `(1a)`
 - Edit sub-items
   - Note: `* edit note 3; - old -> new`
-  - To-Do: `* edit todo 1; - [ ] old -> [ ] new`
+  - To-Do (by parent): `* edit todo 1; - [ ] old -> [ ] new`
+  - To-Do (by subtask ID): `* edit todo 1a; - [ ] old -> [ ] new`
 - Remove sub-items
   - Note: `* remove note 4; - exact text`
-  - To-Do: `* remove todo 2; - [ ] exact text`
+  - To-Do (by parent): `* remove todo 2; - [ ] exact text`
+  - To-Do (by subtask ID): `* remove todo 2a`
 
 Completed items management (Completed section only):
 - Remove one by number: `* remove completed 2`
@@ -73,6 +77,8 @@ When `docs/PROJECT_NOTES.md` is the active document and you send any prompt, the
 ## Sub-bullet and subtask syntax
 - Notes: use `- ` at line start (multiline) or `; - ` separators (single-line) to append sub-bullets
 - To-Dos: subtasks use `- [ ] ` (multiline) or `; - [ ] ` (single-line)
+  - Indent subtasks with four spaces under the parent
+  - Subtasks are auto-tagged as `(N<letter>)` (e.g., `(3a)`, `(3b)`) immediately after the checkbox: `- [ ] (3a) Do thing`
 
 ---
 
